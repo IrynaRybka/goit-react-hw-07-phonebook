@@ -12,10 +12,10 @@ export const ContactsPage = () => {
 
   return (
     <>
-      {isLoading && <Loader/>}
       {contacts && <h2 style={{textAlign: "center"}}>You have {contacts.length} contacts</h2>}
       <ContactFilter />
       <ContactsForm />
+      {isLoading && <Loader/>}
       <ContactList />
     </>
   );
