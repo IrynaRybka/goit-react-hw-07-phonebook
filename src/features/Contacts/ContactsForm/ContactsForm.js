@@ -2,9 +2,6 @@ import { nanoid } from '@reduxjs/toolkit';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { DebounceInput } from 'react-debounce-input';
-
-// import { addContact } from '../../store/Contacts.slice';
 import { addContactsAsyncThunk } from 'features/store/contacts.thunk';
 
 import css from './ContactsForm.module.css';
@@ -49,12 +46,11 @@ export const ContactsForm = () => {
       >
         <label htmlFor="name">
           Name
-          <DebounceInput
+          <input
           className={css.form_input}
-          placeholder='Type 2-10 symbols'
+          placeholder='Type 2-20 symbols'
             minLength={2}
-            maxLength={10}
-            debounceTimeout={1000}
+            maxLength={20}
             value={newName}
             onChange={e => setNewName(e.target.value)}
             type="text"
@@ -66,12 +62,11 @@ export const ContactsForm = () => {
         </label>
         <label htmlFor="number">
           Number
-          <DebounceInput
+          <input
           placeholder='Type 6-20 numbers'
            className={css.form_input}
             minLength={6}
             maxLength={20}
-            debounceTimeout={1000}
             value={number}
             onChange={e => setNumber(e.target.value)}
             type="tel"
