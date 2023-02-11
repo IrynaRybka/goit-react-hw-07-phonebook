@@ -8,14 +8,17 @@ import { Loader } from 'features/Loader/Loader';
 export const ContactsPage = () => {
   const contacts = useSelector(state => state.contacts.contacts);
   const isLoading = useSelector(state => state.contacts.isLoading);
-  console.log(contacts)
 
   return (
     <>
-      {contacts && <h2 style={{textAlign: "center"}}>You have {contacts.length} contacts</h2>}
+      {contacts && (
+        <h2 style={{ textAlign: 'center' }}>
+          You have {contacts.length} contacts
+        </h2>
+      )}
       <ContactFilter />
       <ContactsForm />
-      {isLoading && <Loader/>}
+      {isLoading && <Loader />}
       <ContactList />
     </>
   );

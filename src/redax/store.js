@@ -10,7 +10,6 @@ import {
 import contactReduser from '../features/store/Contacts.slice';
 import filterReduser from '../features/store/Filter.slice';
 
-
 export const store = configureStore({
   reducer: { contacts: contactReduser, filter: filterReduser },
   middleware: getDefaultMiddleware =>

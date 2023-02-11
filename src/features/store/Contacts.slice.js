@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { status } from './status.contacts';
 import { addContactsAsyncThunk, deleteContactsAsyncThunk, getContactsAsyncThunk } from './contacts.thunk';
 
 const initialState = {
-//   status: status.idle,
   contacts: [],
   isLoading: false, 
   error: null
@@ -12,22 +10,6 @@ const initialState = {
 const contactsSlise = createSlice({
   name: 'contacts',
   initialState,
-  reducers: {
-    addContact: (state, action) => {
-      return {
-        ...state,
-        contacts: [...state.contacts, action.payload],
-      };
-    },
-    deleteContact: (state, action) => {
-      return {
-        ...state,
-        contacts: state.contacts.filter(
-          contact => contact.id !== action.payload
-        ),
-      };
-    },
-  },
   extraReducers: {
     [getContactsAsyncThunk.pending]: state => {
         state.isLoading = true;

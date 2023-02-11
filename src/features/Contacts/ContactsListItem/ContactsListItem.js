@@ -3,14 +3,14 @@ import { selectNameContact } from '../../store/selectors';
 import css from './ContactsListItem.module.css';
 import { ImBin } from 'react-icons/im';
 import { useEffect } from 'react';
-import { getContactsAsyncThunk, deleteContactsAsyncThunk } from 'features/store/contacts.thunk';
-
+import {
+  getContactsAsyncThunk,
+  deleteContactsAsyncThunk,
+} from 'features/store/contacts.thunk';
 
 export const ContactListItem = () => {
   const filteredContacts = useSelector(selectNameContact);
   const dispatch = useDispatch();
-  // const contactsState = useSelector(state => state.contacts)
-  console.log(filteredContacts)
 
   useEffect(() => {
     dispatch(getContactsAsyncThunk());
